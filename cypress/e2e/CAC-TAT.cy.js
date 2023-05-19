@@ -47,16 +47,12 @@ describe('Central de Atendimento ao Cliente TAT', () => {
 
   it.only('Preenche e limpa os campos nome, sobrenome, email e telefone', () => {
     cy.get('#firstName').type('Fulano').should('have.value', 'Fulano')
+      .clear().should('have.value', '')
     cy.get('#lastName').type('da Silva').should('have.value', 'da Silva')
+      .clear().should('have.value', '')
     cy.get('#email').type('fulano@email.com').should('have.value', 'fulano@email.com')
-    cy.get('#phone-checkbox').click()
+      .clear().should('have.value', '')
     cy.get('#phone').type('123456789').should('have.value', '123456789')
-    cy.get('#open-text-area').type('Teste').should('have.value', 'Teste')
-
-    cy.get('#firstName').clear().should('have.value', '')
-    cy.get('#lastName').clear().should('have.value', '')
-    cy.get('#email').clear().should('have.value', '')
-    cy.get('#phone').clear().should('have.value', '')
-    cy.get('#open-text-area').clear().should('have.value', '')
+      .clear().should('have.value', '')
   })
 })
